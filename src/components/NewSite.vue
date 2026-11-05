@@ -36,9 +36,10 @@ const vReveal = {
 <template>
   <div class="site">
     <aside class="contact" aria-label="Contact">
-      <a :href="`mailto:${me.email}`">{{ me.email }}</a>
+      <a :href="`mailto:${me.email}`" :aria-label="`Email ${me.email}`">
+        <span class="long">{{ me.email }}</span><span class="short">Email</span>
+      </a>
       <a :href="me.github" target="_blank" rel="noopener">GitHub</a>
-      <span class="rule" />
     </aside>
 
     <!-- Points at the old/new switch (ModeToggle.vue, fixed top-right). -->
@@ -105,32 +106,33 @@ a {
   color: inherit;
 }
 
-/* ---- contact rail on the left edge ---- */
+/* ---- contact links, pinned top-left to mirror the toggle ---- */
 .contact {
   position: fixed;
-  left: 28px;
-  bottom: 0;
+  top: 20px;
+  left: 24px;
+  z-index: 10;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 22px;
-  font-size: 13px;
-  letter-spacing: 0.04em;
+  gap: 18px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  font: 500 13px/1 system-ui, -apple-system, 'Segoe UI', sans-serif;
+  letter-spacing: 0.02em;
 }
 .contact a {
-  writing-mode: vertical-rl;
   text-decoration: none;
   color: var(--muted);
-  transition: color 0.2s, transform 0.2s;
+  transition: color 0.2s;
 }
 .contact a:hover {
   color: var(--ink);
-  transform: translateY(-3px);
 }
-.contact .rule {
-  width: 1px;
-  height: 90px;
-  background: var(--faint);
+.contact .short {
+  display: none;
 }
 
 /* ---- "try this" doodle pointing at the toggle ---- */
@@ -347,27 +349,20 @@ h3 {
   }
 }
 
-/* ---- small screens: contact moves to a row at the bottom ---- */
-@media (max-width: 760px) {
-  .site {
-    padding-bottom: 56px;
-  }
-  .contact {
-    left: 0;
-    right: 0;
-    flex-direction: row;
-    justify-content: center;
-    gap: 24px;
-    padding: 14px 16px;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(8px);
-    border-top: 1px solid var(--faint);
-  }
-  .contact a {
-    writing-mode: horizontal-tb;
-  }
-  .contact .rule {
+/* ---- phones: shorten the email link so it fits beside the toggle ---- */
+@media (max-width: 520px) {
+  .contact .long {
     display: none;
+  }
+  .contact .short {
+    display: inline;
+  }
+}
+
+@media (max-width: 760px) {
+  .contact {
+    top: 12px;
+    left: 12px;
   }
   main {
     padding: 0 16px;
