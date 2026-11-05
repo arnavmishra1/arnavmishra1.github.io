@@ -4,7 +4,9 @@ import { me, projects } from '../content.js'
 const photo = import.meta.env.BASE_URL + me.photo
 const firstName = me.name.split(' ')[0]
 const hits = '004217'
-const updated = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+const lastUpdated = new Date()
+lastUpdated.setFullYear(lastUpdated.getFullYear() - 25)
+const updated = lastUpdated.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
 </script>
 
 <template>
