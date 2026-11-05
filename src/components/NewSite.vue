@@ -41,11 +41,20 @@ const vReveal = {
       <span class="rule" />
     </aside>
 
+    <!-- Points at the old/new switch (ModeToggle.vue, fixed top-right). -->
+    <div class="hint" aria-hidden="true">
+      <span class="hint-text">try this!!!!!</span>
+      <svg width="84" height="62" viewBox="0 0 84 62">
+        <path d="M4 56 C 34 58, 66 44, 74 10" />
+        <path d="M64 18 L74 8 L80 21" />
+      </svg>
+    </div>
+
     <main>
       <section class="hero">
         <img v-reveal :src="photo" :alt="`Photo of ${me.name}`" class="photo" width="112" height="112" />
         <h1 v-reveal="80">{{ me.name }}</h1>
-        <p v-reveal="160" class="bio">{{ me.bio }}</p>
+        <p v-reveal="160" class="bio">{{ me.newbio }}</p>
         <a v-reveal="320" href="#projects" class="cue" aria-label="Scroll to projects">
           <span>Projects</span>
           <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
@@ -122,6 +131,42 @@ a {
   width: 1px;
   height: 90px;
   background: var(--faint);
+}
+
+/* ---- "try this" doodle pointing at the toggle ---- */
+.hint {
+  position: absolute;
+  top: 52px;
+  right: 86px;
+  z-index: 5;
+  display: flex;
+  align-items: flex-end;
+  pointer-events: none;
+  animation: hint-in 0.6s 0.9s both, nudge 2.4s 1.5s ease-in-out infinite;
+}
+.hint-text {
+  margin: 0 6px -14px 0;
+  font: bold 22px 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', cursive;
+  color: #ff00ff;
+  transform: rotate(-8deg);
+  white-space: nowrap;
+}
+.hint svg {
+  fill: none;
+  stroke: #ff00ff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@keyframes hint-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes nudge {
+  50% {
+    transform: translate(4px, -4px);
+  }
 }
 
 main {
@@ -296,7 +341,8 @@ h3 {
     transform: none;
     transition: none;
   }
-  .cue svg {
+  .cue svg,
+  .hint {
     animation: none;
   }
 }
@@ -325,6 +371,13 @@ h3 {
   }
   main {
     padding: 0 16px;
+  }
+  .hint {
+    top: 42px;
+    right: 72px;
+    /* `scale`, not `transform`, so it doesn't fight the nudge animation */
+    scale: 0.85;
+    transform-origin: top right;
   }
   .project {
     grid-template-columns: 1fr;
