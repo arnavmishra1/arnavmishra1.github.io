@@ -9,12 +9,15 @@ export const me = {
   github: 'https://github.com/arnavmishra1',
 }
 
+// image: a screenshot in /public, e.g. 'carculator.png'. Wide images (about
+// 16:10) look best.
 export const projects = [
   {
     name: 'Carculator',
     blurb:
       'A calculator with exact decimal math, a saved history, and a car fun fact whenever the answer lands close to one.',
     tags: ['Vue', 'Vite', 'decimal.js'],
+    image: 'project-placeholder.svg',
     live: 'https://arnavmishra1.github.io/carculator/',
     repo: 'https://github.com/arnavmishra1/carculator',
   },
@@ -23,6 +26,7 @@ export const projects = [
     blurb:
       'Compare a new wheel and tire against your current setup: diameter, speedo error, poke, clearance, and a cross-section drawing from real tire data.',
     tags: ['Vue', 'Vite', 'SVG'],
+    image: 'project-placeholder.svg',
     live: 'https://arnavmishra1.github.io/tire-fitter/',
     repo: 'https://github.com/arnavmishra1/tire-fitter',
   },

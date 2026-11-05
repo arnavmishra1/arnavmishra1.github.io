@@ -1,7 +1,8 @@
 <script setup>
 import { me, projects } from '../content.js'
 
-const photo = import.meta.env.BASE_URL + me.photo
+const base = import.meta.env.BASE_URL
+const photo = base + me.photo
 
 // v-reveal: fades an element in the first time it scrolls into view.
 const observer =
@@ -68,6 +69,9 @@ const vReveal = {
               <a :href="p.repo" target="_blank" rel="noopener">GitHub repo <span aria-hidden="true">↗</span></a>
             </div>
           </div>
+          <a :href="p.live" target="_blank" rel="noopener" class="shot" :aria-label="`Open ${p.name}`">
+            <img :src="base + p.image" :alt="`Screenshot of ${p.name}`" loading="lazy" />
+          </a>
         </article>
       </section>
 
@@ -121,7 +125,7 @@ a {
 }
 
 main {
-  max-width: 680px;
+  max-width: 860px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -190,10 +194,31 @@ h1 {
 }
 .project {
   display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 8px;
+  grid-template-columns: 40px 1fr 300px;
+  gap: 8px 28px;
+  align-items: start;
   padding: 40px 0;
   border-top: 1px solid var(--faint);
+}
+.shot {
+  display: block;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--faint);
+  background: #f4f4f4;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.shot:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+.shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
 }
 .num {
   font-size: 13px;
@@ -303,6 +328,13 @@ h3 {
   }
   .project {
     grid-template-columns: 1fr;
+  }
+  .num {
+    display: none;
+  }
+  .shot {
+    order: -1;
+    margin-bottom: 12px;
   }
 }
 </style>
