@@ -40,6 +40,7 @@ const vReveal = {
         <span class="long">{{ me.email }}</span><span class="short">Email</span>
       </a>
       <a :href="me.github" target="_blank" rel="noopener">GitHub</a>
+      <a :href="me.linkedin" target="_blank" rel="noopener">LinkedIn</a>
     </aside>
 
     <!-- Points at the old/new switch (ModeToggle.vue, fixed top-right). -->

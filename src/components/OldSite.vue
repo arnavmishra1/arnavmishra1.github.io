@@ -27,7 +27,11 @@ const updated = new Date().toLocaleDateString('en-US', { month: 'long', day: 'nu
             </p>
             <p>
               💾 MY CODE:<br />
-              <a :href="me.github" target="_blank" rel="noopener">GitHub</a>
+              <a :href="me.github" target="_blank" rel="noopener">github!!!!!!!</a>
+            </p>
+            <p>
+              🤝 HIRE ME:<br />
+              <a :href="me.linkedin" target="_blank" rel="noopener">LinkedIn</a>
             </p>
             <hr />
             <p class="small">You are visitor #</p>
@@ -49,9 +53,9 @@ const updated = new Date().toLocaleDateString('en-US', { month: 'long', day: 'nu
                     <center class="small">^^ thats me ^^</center>
                   </td>
                   <td valign="top">
-                    <h1 class="name">{{ me.name }}</h1>
+                    <h1 class="name">{{ me.name }} ^o^</h1>
                     <p class="bio">
-                      <font color="#ff0000"><b>Hi!!!</b></font> {{ me.bio }}
+                      <font color="#ff0000"><b>Hi!!!</b></font> {{ me.oldbio }}
                       <span class="blink">NEW!</span>
                     </p>
                   </td>
@@ -61,7 +65,7 @@ const updated = new Date().toLocaleDateString('en-US', { month: 'long', day: 'nu
 
             <hr class="rainbow" />
 
-            <h2 class="projects-title">~*~ MY PROJECTS ~*~</h2>
+            <h2 class="projects-title">~#~ MY PROJECTS ~#~</h2>
 
             <table class="project" v-for="p in projects" :key="p.name" border="2" cellpadding="8" width="100%">
               <tbody>
@@ -76,7 +80,7 @@ const updated = new Date().toLocaleDateString('en-US', { month: 'long', day: 'nu
                       />
                       {{ p.name }}
                     </h3>
-                    <p>{{ p.blurb }}</p>
+                    <p>{{ p.oldblurb }}</p>
                     <p>
                       &gt;&gt; <a :href="p.live" target="_blank" rel="noopener">CLICK HERE to try it!!</a><br />
                       &gt;&gt; <a :href="p.repo" target="_blank" rel="noopener">View the source code</a>
@@ -88,9 +92,9 @@ const updated = new Date().toLocaleDateString('en-US', { month: 'long', day: 'nu
 
             <hr class="rainbow" />
             <center class="small">
-              &lt;&lt; prev | <b>Car Nerds Web Ring</b> | next &gt;&gt;<br />
+              &lt;&lt; prev | <b>Arnav.net</b> | next &gt;&gt;<br />
               Last updated: {{ updated }}<br />
-              © {{ new Date().getFullYear() }} {{ me.name }}. All rights reserved. Do NOT steal my graphics!!!
+              © {{ new Date().getFullYear()-25 }} {{ me.name }}. All rights reserved. Do NOT steal my graphics!!!
             </center>
           </td>
         </tr>
