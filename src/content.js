@@ -12,7 +12,7 @@ export const projects = [
   {
     name: 'Carculator',
     blurb:
-      'A calculator with exact decimal math, a saved history, and a car fun fact whenever the answer lands close to one.',
+      'A simple calculator app that gives you fun facts about cars!',
     oldblurb:
       'Have YOU ever wanted to know a random car fact when you multiply pi by the circumference of the moon??? Well now you CAN!!!!!!!',
     tags: ['Vue', 'Vite', 'decimal.js'],
@@ -23,7 +23,7 @@ export const projects = [
   {
     name: 'Tire Fitter',
     blurb:
-      'Compare a new wheel and tire against your current setup: diameter, speedo error, poke, clearance, and a cross-section drawing from real tire data.',
+      'Visualize wheel and tire fitment between two different setups! The ONLY tool with camber and real tire data for tread widths and sidewall shapes.',
     oldblurb:
       'Do your tires look weak and pathetic? Do YOU want to know how much MEAT you can fit in those fenders without baconing them? sign up for this FREE tool that only costs 10 easy payments of $19.99!!!',
     tags: ['Vue', 'Vite', 'SVG'],
